@@ -3,5 +3,7 @@ function [ y ] = g( x )
 %   Detailed explanation goes here
 y = tanh(x);
 
+%y = log(cosh(x));
+
 end
 

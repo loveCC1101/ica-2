@@ -10,7 +10,7 @@ x = x - repmat(mu, 1, length(x));
 
 % Covariance
 sigma = cov(x');
-[V D] = eig(sigma);
+[V, D] = eig(sigma);
 
 % Whiten
 x = V * sqrt(D) * V' * x;

@@ -3,6 +3,7 @@ function [ y ] = gdot( x )
 %   Detailed explanation goes here
 
 y = sech(x) .^ 2;
+%y = tanh(x);
 
 end
 

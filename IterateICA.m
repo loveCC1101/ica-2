@@ -16,9 +16,9 @@ g2 = W .* repmat(mean(gdot(p), 2), 1, n);
 out = out - g2;
 
 % Normalize
-out = out / repmat(sqrt(sum(out .* out, 2)), 1, n);
+out = out ./ repmat(sqrt(sum(out .* out, 1)), n, 1);
 
 % Decorrelate
-out = sqrt(out * out') \ out;
+out = sqrtm(out * out') \ out;
 end
 
