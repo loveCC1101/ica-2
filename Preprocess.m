@@ -1,4 +1,4 @@
-function [ x, mu ] = Preprocess( x )
+function [ xwhitened, mu ] = Preprocess( x )
 %Preprocesses sound mixtures
 % Centers and whitens the mixtures
 % x: nxk vector, n is the number of mixtures, k is the number of samples
@@ -6,14 +6,14 @@ function [ x, mu ] = Preprocess( x )
 
 % Center
 mu = mean(x, 2);
-x = x - repmat(mu, 1, length(x));
+xcenter = x - repmat(mu, 1, length(x));
 
 % Covariance
-sigma = cov(x');
+sigma = cov(xcenter');
 [V, D] = eig(sigma);
 
 % Whiten
-x = V * sqrt(D) * V' * x;
-
+%xwhitened = V * sqrt(D) * V' * xcenter;
+xwhitened = V * diag(diag(D).^(-0.5)) * V' * xcenter;
 end
 
