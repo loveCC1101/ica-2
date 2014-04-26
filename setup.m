@@ -11,5 +11,9 @@ s2_orig = s2_orig(1:n);
 % Mixing matrix:
 A = [2.23 0.88; 0.91 1.44];
 
+
 x = A * [s1_orig, s2_orig]';
 
+%(x \ A) == ([s1_orig, s2_orig]')
+
+%isequal(A \ x, [s1_orig, s2_orig])
