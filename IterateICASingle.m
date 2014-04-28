@@ -7,7 +7,7 @@ function [ out ] = IterateICASingle( w, x )
 p = w'*x;
 gp = g(p);
 out = x * gp' / k;
-
+%size(out)
 g2 = mean(gdot(p), 2) * w;
 out = out - g2;
 

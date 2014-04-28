@@ -1,0 +1,121 @@
+main idea: compare inaccuracies using normalized A and W, maybe inversions?
+W * whitener * A ~= [1, 0; 0, 1] after normalization
+and maybe flip some signs??
+
+switch rows function, for convenience?
+
+
+presentation thoughts
+
+Blind Source Separation using Independent Component Analysis
+
+'cocktail party problem'
+
+note: can only use this on 2 sources. noise should be minimal.
+
+maximizing non-Gaussianity is the goal
+
+note: ambiguities here are intuitive: the source 'order' is unknown, same for the magnitudes. normalizing can fix some of that?
+
+this one seeks to minimize (an approximation of) negentropy when calculating weights for unmixing.
+
+
+
+
+
+
+
+SLIDES
+
+
+title
+
+ICA overview, fastICA
+
+gaussianness?
+
+Negentropy, mutual information?
+
+"Out of all distributions with a given mean and variance, the normal or Gaussian distribution is the one with the highest entropy. Negentropy measures the difference in entropy between a given distribution and the Gaussian distribution with the same mean and variance. Thus, negentropy is always nonnegative, is invariant by any linear invertible change of coordinates, and vanishes if and only if the signal is Gaussian." wikipedia
+
+
+see paper for explanation
+
+
+Approximation of negentropy:
+
+used G1, one of the recommendations from the paper
+
+basically, we assume these signals are independent. AT the very least, they are uncorrelated. 
+
+
+CLT: 
+Negentropy: least gaussian, means maximally index, means minim I(X;Y)
+
+
+
+The algorithm: steps
+
+Preprocess:
+Lowpass???????
+Center
+Whiten
+
+Actual: (fastICA for several units)
+do the following a bunch of times
+- the thing with E and stuff
+- normalize
+- decorrelate (symmatric method)
+
+- maybe compare against the original matrix??
+
+in slow motion
+
+
+
+testing
+
+
+
+
+results
+
+
+
+
+
+
+
+
+conclusions, other options
+
+
+
+
+sources (source)
+
+
+questions????
+
+
+
+// TODO
+
+
+put code in slides
+
+revise earlier slides
+
+more maths
+
+presentation notes
+
+
+
+
+
+
+
+
+
+
